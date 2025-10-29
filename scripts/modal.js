@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
             title: 'Портфолио',
             description: 'Адаптивное портфолио с использованием Bootstrap для быстрой разработки и отзывчивого дизайна.',
             technologies: ['Bootstrap', 'HTML', 'CSS'],
-            images: ['../images/project4.jpg'],
-            liveLink: '#',
-            githubLink: '#'
+            images: ['../assets/images/portfolio_project.png'],
+            liveLink: 'https://nemolucky.github.io/control_work_front_and_back/index.html',
+            githubLink: 'https://github.com/nemolucky/frontend-and-backend-practice/blob/main/index.html'
         }
     };
     

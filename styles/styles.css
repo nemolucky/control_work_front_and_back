@@ -501,6 +501,11 @@ h2 {
     position: relative;
 }
 
+.contact-item a{
+    color: #3097ff;
+    text-decoration: none;
+}
+
 .form-group {
     margin-bottom: 25px;
 }

@@ -1,4 +1,3 @@
-// Валидация формы контактов
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let isValid = true;
             
-            // Валидация имени
             if (name.value.trim() === '') {
                 nameError.textContent = 'Пожалуйста, введите ваше имя';
                 isValid = false;
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 nameError.textContent = '';
             }
             
-            // Валидация email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (email.value.trim() === '') {
                 emailError.textContent = 'Пожалуйста, введите ваш email';
@@ -36,7 +33,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 emailError.textContent = '';
             }
             
-            // Валидация сообщения
             if (message.value.trim() === '') {
                 messageError.textContent = 'Пожалуйста, введите ваше сообщение';
                 isValid = false;
@@ -44,9 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 messageError.textContent = '';
             }
             
-            // Если форма валидна, можно отправить данные
             if (isValid) {
-                alert('Сообщение успешно отправлено!');
+                alert('✅ Сообщение успешно отправлено! Я свяжусь с вами в ближайшее время.');
                 contactForm.reset();
             }
         });

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Учебный дневник - Портфолио студента</title>
+    <link rel="icon" type="image/png" href="../assets/icons/site_logo_icon.png">    
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Пучко Денис</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="diary.html" class="active">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="diary">
+            <div class="container">
+                <h2>Мой учебный прогресс</h2>
+                <div class="diary-content">
+                    <div class="progress-timeline">
+                        <h3>Хронология обучения</h3>
+                        <div class="timeline">
+                            <div class="timeline-item completed">
+                                <span class="date">15 дек</span>
+                                <span class="task">Верстка макета сайта</span>
+                                <span class="status">✓</span>
+                            </div>
+                            <div class="timeline-item completed">
+                                <span class="date">10 дек</span>
+                                <span class="task">JavaScript основы</span>
+                                <span class="status">✓</span>
+                            </div>
+                            <div class="timeline-item in-progress">
+                                <span class="date">05 дек</span>
+                                <span class="task">Работа с формами</span>
+                                <span class="status">in progress</span>
+                            </div>
+                            <div class="timeline-item in-progress">
+                                <span class="date">01 дек</span>
+                                <span class="task">Адаптивный дизайн</span>
+                                <span class="status">in progress</span>
+                            </div>
+                        </div>
+                        <button class="btn" id="add-entry">Добавить запись</button>
+                    </div>
+                    <div class="current-courses">
+                        <h3>Текущие курсы</h3>
+                        <div class="course-progress">
+                            <div class="course-item">
+                                <span>Веб-разработка</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                                <span>90%</span>
+                            </div>
+                            <div class="course-item">
+                                <span>JavaScript</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
+                                <span>70%</span>
+                            </div>
+                            <div class="course-item">
+                                <span>React</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%"></div>
+                                </div>
+                                <span>50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+</body>
+</html>

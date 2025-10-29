@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проекты - Портфолио студента</title>
+    <link rel="icon" type="image/png" href="../assets/icons/site_logo_icon.png">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Пучко Денис</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="diary.html">Дневник</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects">
+            <div class="container">
+                <h2>Мои проекты</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="html">HTML</button>
+                    <button class="filter-btn" data-filter="js">JavaScript</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card" data-category="html">
+                        <img src="../assets/images/self_site_project.png" alt="Личный сайт">
+                        <h3>Личный сайт</h3>
+                        <p>HTML, CSS</p>
+                        <button class="btn project-details" data-project="1">Подробнее</button>
+                    </div>
+                    <div class="project-card" data-category="js">
+                        <img src="../assets/images/news_site_project.png" alt="News-приложение">
+                        <h3>Новостной портал</h3>
+                        <p>JavaScript</p>
+                        <button class="btn project-details" data-project="2">Подробнее</button>
+                    </div>
+                    <div class="project-card" data-category="react">
+                        <img src="../assets/images/store_project.png" alt="Интернет-магазин">
+                        <h3>Интернет-магазин</h3>
+                        <p>React</p>
+                        <button class="btn project-details" data-project="3">Подробнее</button>
+                    </div>
+                    <div class="project-card" data-category="html">
+                        <img src="../assets/images/portfolio_project.png" alt="Портфолио">
+                        <h3>Портфолио</h3>
+                        <p>Bootstrap</p>
+                        <button class="btn project-details" data-project="4">Подробнее</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно для деталей проекта -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+                <!-- Контент модального окна будет заполнен через JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Контакты</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/filter.js"></script>
+    <script src="../scripts/modal.js"></script>
+</body>
+</html>

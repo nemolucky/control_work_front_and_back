@@ -48,18 +48,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 const project = projectData[projectId];
                 
                 if (project) {
+                    // В части где заполняется модальное окно, замените на:
                     document.getElementById('modal-body').innerHTML = `
                         <h2>${project.title}</h2>
                         <p>${project.description}</p>
+                        
                         <div class="project-technologies">
-                            <strong>Технологии:</strong> ${project.technologies.join(', ')}
+                            <strong>Технологии:</strong>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+                                ${project.technologies.map(tech => 
+                                    `<span class="tech-tag">${tech}</span>`
+                                ).join('')}
+                            </div>
                         </div>
+                        
                         <div class="project-images">
-                            ${project.images.map(img => `<img src="${img}" alt="${project.title}">`).join('')}
+                            <img src="${project.images[0]}" alt="${project.title}">
                         </div>
+                        
                         <div class="project-links">
-                            <a href="${project.liveLink}" class="btn" target="_blank">Живая версия</a>
-                            <a href="${project.githubLink}" class="btn" target="_blank">Исходный код</a>
+                            <a href="${project.liveLink}" class="btn" target="_blank">🌐 Живая версия</a>
+                            <a href="${project.githubLink}" class="btn" target="_blank">💻 Исходный код</a>
                         </div>
                     `;
                     

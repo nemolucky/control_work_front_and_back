@@ -67,16 +67,6 @@
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.project-card::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 4px;
-	background: linear-gradient(90deg, #379b78, #55efb9);
-}
-
 .project-card img {
 	width: 100%;
 	height: 200px;

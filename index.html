@@ -51,32 +51,32 @@
 									<source
 										type="image/avif"
 										srcset="
-											./assets/images/student-150.avif 150w,
-											./assets/images/student-200.avif 200w,
-											./assets/images/student-300.avif 300w
+											./assets/images/student/student-300.avif 300w,
+											./assets/images/student/student-450.avif 450w,
+											./assets/images/student/student-600.avif 600w
 										"
-										sizes="200px"
+										sizes="(max-width: 768px) 300px, 450px"
 									/>
 									<source
 										type="image/webp"
 										srcset="
-											./assets/images/student-150.webp 150w,
-											./assets/images/student-200.webp 200w,
-											./assets/images/student-300.webp 300w
+											./assets/images/student/student-300.webp 300w,
+											./assets/images/student/student-450.webp 450w,
+											./assets/images/student/student-600.webp 600w
 										"
-										sizes="200px"
+										sizes="(max-width: 768px) 300px, 450px"
 									/>
 									<img
 										class="hero_photo"
-										src="./assets/images/student-200.jpg"
+										src="./assets/images/student-450.jpg"
 										srcset="
-											./assets/images/student-150.jpg 150w,
-											./assets/images/student-200.jpg 200w,
-											./assets/images/student-300.jpg 300w
+											./assets/images/student/student-300.jpg 300w,
+											./assets/images/student/student-450.jpg 450w,
+											./assets/images/student/student-600.jpg 600w
 										"
-										sizes="200px"
-										width="200"
-										height="200"
+										sizes="(max-width: 768px) 300px, 450px"
+										width="450"
+										height="450"
 										alt="Портрет студента"
 										fetchpriority="high"
 									/>
@@ -129,34 +129,115 @@
 					<div class="projects-area">
 						<div class="projects-grid">
 							<div class="project-card">
-								<img
-									src="./assets/images/project_1.jpg"
-									alt="Проект 1"
-									width="300"
-									height="200"
-								/>
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/prj1/prj1-300.avif 300w,
+											../assets/images/prj1/prj1-450.avif 450w,
+											../assets/images/prj1/prj1-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/prj1/prj1-300.webp 300w,
+											../assets/images/prj1/prj1-450.webp 450w,
+											../assets/images/prj1/prj1-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/prj1/prj1-450.jpg"
+										srcset="
+											../assets/images/prj1/prj1-300.jpg 300w,
+											../assets/images/prj1/prj1-450.jpg 450w,
+											../assets/images/prj1/prj1-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Личный сайт"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
 								<div class="project-content">
 									<h3>NailsElizza</h3>
 								</div>
 							</div>
 							<div class="project-card">
-								<img
-									src="./assets/images/project_2.jpg"
-									alt="Проект 2"
-									width="300"
-									height="200"
-								/>
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/prj2/prj2-300.avif 300w,
+											../assets/images/prj2/prj2-450.avif 450w,
+											../assets/images/prj2/prj2-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/prj2/prj2-300.webp 300w,
+											../assets/images/prj2/prj2-450.webp 450w,
+											../assets/images/prj2/prj2-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/prj2/prj2-450.jpg"
+										srcset="
+											../assets/images/prj2/prj2-300.jpg 300w,
+											../assets/images/prj2/prj2-450.jpg 450w,
+											../assets/images/prj2/prj2-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Личный сайт"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
 								<div class="project-content">
 									<h3>CoinsPrice</h3>
 								</div>
 							</div>
 							<div class="project-card">
-								<img
-									src="./assets/images/project_3.png"
-									alt="Проект 3"
-									width="300"
-									height="200"
-								/>
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/prj3/prj3-300.avif 300w,
+											../assets/images/prj3/prj3-450.avif 450w,
+											../assets/images/prj3/prj3-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/prj3/prj3-300.webp 300w,
+											../assets/images/prj3/prj3-450.webp 450w,
+											../assets/images/prj3/prj3-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/prj3/prj3-450.jpg"
+										srcset="
+											../assets/images/prj3/prj3-300.jpg 300w,
+											../assets/images/prj3/prj3-450.jpg 450w,
+											../assets/images/prj3/prj3-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Личный сайт"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
 								<div class="project-content">
 									<h3>Трекер задач</h3>
 								</div>

@@ -47,7 +47,7 @@
 }
 
 .hero_photo {
-	inline-size: 200px;
+	inline-size: clamp(200px, 30vw, 450px);
 	block-size: auto;
 	border-radius: 50%;
 	object-fit: cover;

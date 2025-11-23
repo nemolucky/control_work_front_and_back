@@ -8,8 +8,9 @@
 
 .diary-content {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 	gap: var(--space-lg, 1.5rem);
+	align-items: start;
 }
 
 .progress-timeline,
@@ -19,6 +20,7 @@
 	border-radius: 15px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 	min-width: 0;
+	height: fit-content;
 }
 
 .progress-timeline h3,
@@ -163,6 +165,72 @@
 	padding: max(0.5rem, calc((44px - 1em) / 2)) 1rem;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+	.diary {
+		padding: 40px 0;
+		margin-block: var(--space-lg, 1.5rem);
+	}
+
+	.diary-content {
+		grid-template-columns: 1fr;
+		gap: var(--space-lg, 1.5rem);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.progress-timeline,
+	.current-courses {
+		padding: 1.5rem;
+	}
+
+	.progress-timeline h3,
+	.current-courses h3 {
+		font-size: 1.3rem;
+		margin-bottom: 20px;
+	}
+
+	.timeline {
+		margin-bottom: 20px;
+	}
+
+	.timeline-item {
+		padding: 0.875rem;
+		margin-bottom: 10px;
+	}
+
+	.course-item {
+		padding: 0.875rem;
+		margin-bottom: 15px;
+	}
+
+	.timeline-item .date {
+		min-width: 60px;
+		font-size: 0.9rem;
+	}
+
+	.timeline-item .status {
+		min-width: 80px;
+		font-size: 0.9rem;
+	}
+
+	#add-entry {
+		padding: 1rem 2rem;
+		font-size: 1.1rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	.diary-content {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-lg, 1.5rem);
+	}
+
+	.progress-timeline,
+	.current-courses {
+		padding: 1.75rem;
+	}
+}
+
 @supports (container-type: inline-size) {
 	.diary-content {
 		container-type: inline-size;
@@ -189,6 +257,33 @@
 			width: 100%;
 			margin-top: 0.5rem;
 		}
+	}
+
+	@container diary (min-width: 768px) and (max-width: 1024px) {
+		.progress-timeline,
+		.current-courses {
+			padding: 1.5rem;
+		}
+	}
+}
+
+@supports (-webkit-touch-callout: none) {
+	.timeline-item,
+	.course-item {
+		transform: translateZ(0);
+	}
+}
+
+/* Улучшения для touch-устройств */
+@media (pointer: coarse) and (min-width: 768px) {
+	.timeline-item,
+	.course-item {
+		min-height: 50px;
+		padding: 1rem;
+	}
+
+	#add-entry {
+		min-height: 54px;
 	}
 }
 
@@ -307,5 +402,34 @@
 
 	#add-entry {
 		min-height: 44px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.diary .container {
+		width: 95%;
+		padding-inline: 1rem;
+	}
+
+	.progress-timeline h3::after,
+	.current-courses h3::after {
+		width: 35px;
+	}
+
+	.timeline-item .task,
+	.course-item span:first-child {
+		font-size: 0.95rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.progress-bar {
+		height: 14px;
+		margin: 0 15px;
+	}
+
+	.course-item span:last-child {
+		font-size: 0.9rem;
+		min-width: 45px;
 	}
 }

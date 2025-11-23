@@ -8,8 +8,9 @@
 
 .contact-content {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
 	gap: var(--space-lg, 1.5rem);
+	align-items: start;
 }
 
 .contact-form,
@@ -19,6 +20,7 @@
 	border-radius: 15px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 	min-width: 0;
+	height: fit-content;
 }
 
 .contact-form h3,
@@ -150,6 +152,132 @@
 .contact-form .btn:focus-visible {
 	outline: 3px solid #2563eb;
 	outline-offset: 2px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+	.contacts {
+		padding: 40px 0;
+		margin-block: var(--space-lg, 1.5rem);
+	}
+
+	.contact-content {
+		grid-template-columns: 1fr;
+		gap: var(--space-lg, 1.5rem);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.contact-form,
+	.contact-info {
+		padding: 1.5rem;
+	}
+
+	.contact-form h3,
+	.contact-info h3 {
+		font-size: 1.3rem;
+		margin-bottom: 20px;
+	}
+
+	.form-group {
+		margin-bottom: 20px;
+	}
+
+	.form-group input,
+	.form-group textarea {
+		padding: 0.875rem 1rem;
+		font-size: 16px;
+	}
+
+	.contact-item {
+		padding: 0.875rem;
+		margin-bottom: 15px;
+	}
+
+	.contact-form .btn {
+		padding: 1rem 2rem;
+		font-size: 1.1rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+	.contact-content {
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--space-lg, 1.5rem);
+	}
+
+	.contact-form,
+	.contact-info {
+		padding: 1.75rem;
+	}
+}
+
+@supports (-webkit-touch-callout: none) {
+	.form-group input,
+	.form-group textarea {
+		font-size: 16px;
+		transform: translateZ(0);
+	}
+}
+
+@media (pointer: coarse) and (min-width: 768px) {
+	.contact-item {
+		min-height: 50px;
+		padding: 1rem;
+	}
+
+	.form-group input,
+	.form-group textarea {
+		min-height: 50px;
+	}
+
+	.contact-form .btn {
+		min-height: 54px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.container {
+		width: 95%;
+		padding-inline: 1rem;
+	}
+
+	main {
+		padding: 30px 0;
+	}
+
+	section {
+		margin-bottom: 40px;
+	}
+
+	h2 {
+		font-size: clamp(1.4rem, 1.2rem + 1vw, 1.8rem);
+		margin-bottom: 30px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	nav ul {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	nav ul li {
+		margin: 0 0.5rem;
+	}
+
+	nav ul li a {
+		padding: 0.75rem 1rem;
+		font-size: 0.95rem;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.footer {
+		padding: 25px 0;
+		padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+		margin-top: 40px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

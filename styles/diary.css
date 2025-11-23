@@ -5,28 +5,31 @@
 	padding: 60px 0;
 	border-radius: 15px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	margin-block: var(--space-2xl, 3rem);
 }
 
 .diary-content {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 40px;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	gap: var(--space-lg, 1.5rem);
 }
 
 .progress-timeline,
 .current-courses {
 	background-color: #fff;
-	padding: 35px;
+	padding: clamp(1.5rem, 1.25rem + 1vw, 2.5rem);
 	border-radius: 15px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	min-width: 0;
 }
 
 .progress-timeline h3,
 .current-courses h3 {
 	color: #2c3e50;
 	margin-bottom: 25px;
-	font-size: 1.4rem;
+	font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
 	position: relative;
+	overflow-wrap: anywhere;
 }
 
 .timeline {
@@ -43,6 +46,7 @@
 	border-radius: 8px;
 	padding-left: 15px;
 	padding-right: 15px;
+	gap: 0.5rem;
 }
 
 .timeline-item:hover {
@@ -67,12 +71,20 @@
 	font-weight: 600;
 	color: #379b78;
 	min-width: 70px;
+	flex-shrink: 0;
+}
+
+.timeline-item .task {
+	flex: 1;
+	min-width: 0;
+	overflow-wrap: anywhere;
 }
 
 .timeline-item .status {
 	font-weight: 600;
 	min-width: 100px;
 	text-align: right;
+	flex-shrink: 0;
 }
 
 .timeline-item.completed .status {
@@ -91,6 +103,7 @@
 	padding: 15px;
 	border-radius: 10px;
 	transition: background-color 0.3s ease;
+	gap: 0.5rem;
 }
 
 .course-item:hover {
@@ -100,7 +113,8 @@
 .course-item span:first-child {
 	font-weight: 600;
 	color: #2c3e50;
-	min-width: 150px;
+	min-width: 120px;
+	flex-shrink: 0;
 }
 
 .progress-bar {
@@ -111,6 +125,7 @@
 	margin: 0 20px;
 	overflow: hidden;
 	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+	min-width: 0;
 }
 
 .progress-fill {
@@ -118,24 +133,147 @@
 	background: linear-gradient(90deg, #28a745, #20c997);
 	border-radius: 10px;
 	transition: width 1s ease-in-out;
+	position: relative;
+}
+
+.progress-fill::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-image: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.3),
+		transparent
+	);
+	animation: shimmer 2s infinite;
 }
 
 .course-item span:last-child {
 	font-weight: 600;
 	min-width: 50px;
 	text-align: right;
+	flex-shrink: 0;
 }
 
 #add-entry {
 	width: 100%;
 	margin-top: 10px;
+	padding: max(0.5rem, calc((44px - 1em) / 2)) 1rem;
+}
+
+/* Контейнерные запросы для дневника */
+@supports (container-type: inline-size) {
+	.diary-content {
+		container-type: inline-size;
+		container-name: diary;
+	}
+
+	@container diary (min-width: 640px) {
+		.diary-content {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@container diary (max-width: 639px) {
+		.diary-content {
+			grid-template-columns: 1fr;
+		}
+
+		.timeline-item {
+			flex-wrap: wrap;
+		}
+
+		.timeline-item .task {
+			order: 3;
+			width: 100%;
+			margin-top: 0.5rem;
+		}
+	}
+}
+
+/* Анимация shimmer для прогресс-баров */
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+/* Уважение к снижению движения */
+@media (prefers-reduced-motion: reduce) {
+	.timeline-item,
+	.course-item,
+	.progress-fill {
+		transition: none !important;
+	}
+
+	.progress-fill::after {
+		animation: none;
+	}
+
+	.shimmer {
+		animation: none;
+	}
+}
+
+/* Повышенный контраст */
+@media (prefers-contrast: more) {
+	.progress-timeline,
+	.current-courses {
+		border: 2px solid #e9ecef;
+	}
+
+	.timeline-item {
+		border-bottom: 2px solid #e9ecef;
+	}
+
+	.progress-bar {
+		border: 1px solid #495057;
+	}
+}
+
+/* Фокус для доступности */
+.timeline-item:focus-within,
+.course-item:focus-within {
+	background-color: #e3f2fd;
+	outline: 2px solid #2563eb;
+	outline-offset: 2px;
+}
+
+#add-entry:focus-visible {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
 }
 
 /* Адаптивность для diary.html */
 @media (max-width: 768px) {
 	.diary-content {
-		grid-template-columns: 1fr;
 		gap: 30px;
+	}
+
+	.timeline-item {
+		flex-wrap: wrap;
+	}
+
+	.timeline-item .date {
+		min-width: 60px;
+	}
+
+	.timeline-item .status {
+		min-width: 80px;
+		font-size: 0.9rem;
+	}
+
+	.timeline-item .task {
+		order: 3;
+		width: 100%;
+		margin-top: 0.5rem;
 	}
 }
 
@@ -143,9 +281,40 @@
 	.progress-bar {
 		width: 100%;
 		margin: 10px 0;
+		order: 2;
+	}
+
+	.course-item {
+		flex-wrap: wrap;
+	}
+
+	.course-item span:first-child {
+		min-width: auto;
+		width: 100%;
+		margin-bottom: 0.5rem;
+	}
+
+	.course-item span:last-child {
+		order: 3;
+		width: 100%;
+		text-align: left;
+		margin-top: 0.5rem;
 	}
 
 	.timeline-item .status {
 		align-self: flex-end;
+	}
+}
+
+/* Крупные цели для touch-устройств */
+@media (pointer: coarse) {
+	.timeline-item,
+	.course-item {
+		min-height: 44px;
+		padding: 1rem;
+	}
+
+	#add-entry {
+		min-height: 44px;
 	}
 }

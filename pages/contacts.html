@@ -2,7 +2,10 @@
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
 		<title>Контакты - Портфолио студента</title>
 		<link
 			rel="icon"
@@ -12,13 +15,16 @@
 		<link rel="stylesheet" href="../styles/global.css" />
 		<link rel="stylesheet" href="../styles/contacts.css" />
 	</head>
-	<body>
+	<body class="page">
+		<!-- Skip-link для доступности -->
+		<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
 		<header>
 			<div class="container">
 				<div class="logo">
 					<h1>Пучко Денис</h1>
 				</div>
-				<nav>
+				<nav class="nav" aria-label="Основная навигация">
 					<ul>
 						<li><a href="../index.html">Главная</a></li>
 						<li><a href="projects.html">Проекты</a></li>
@@ -29,21 +35,39 @@
 			</div>
 		</header>
 
-		<main>
+		<main id="main" class="main">
 			<section class="contacts">
 				<div class="container">
 					<h2>Свяжитесь со мной</h2>
 					<div class="contact-content">
-						<form class="contact-form" id="contact-form">
+						<form class="contact-form" id="contact-form" novalidate>
 							<div class="form-group">
 								<label for="name">Имя:</label>
-								<input type="text" id="name" name="name" required />
-								<span class="error-message" id="name-error"></span>
+								<input
+									type="text"
+									id="name"
+									name="name"
+									required
+									aria-describedby="name-error"
+									autocomplete="name"
+								/>
+								<span class="error-message" id="name-error" role="alert"></span>
 							</div>
 							<div class="form-group">
 								<label for="email">Email:</label>
-								<input type="email" id="email" name="email" required />
-								<span class="error-message" id="email-error"></span>
+								<input
+									type="email"
+									id="email"
+									name="email"
+									required
+									aria-describedby="email-error"
+									autocomplete="email"
+								/>
+								<span
+									class="error-message"
+									id="email-error"
+									role="alert"
+								></span>
 							</div>
 							<div class="form-group">
 								<label for="message">Сообщение:</label>
@@ -52,25 +76,45 @@
 									name="message"
 									rows="5"
 									required
+									aria-describedby="message-error"
 								></textarea>
-								<span class="error-message" id="message-error"></span>
+								<span
+									class="error-message"
+									id="message-error"
+									role="alert"
+								></span>
 							</div>
 							<button type="submit" class="btn">Отправить сообщение</button>
 						</form>
 						<div class="contact-info">
 							<h3>Контакты:</h3>
 							<div class="contact-item">
-								<img src="../assets/icons/email_icon.png" alt="Email" />
+								<img
+									src="../assets/icons/email_icon.png"
+									alt=""
+									width="24"
+									height="24"
+									loading="lazy"
+								/>
 								<span>puchko.d.v@edu.mirea.ru</span>
 							</div>
 							<div class="contact-item">
-								<img src="../assets/icons/github_icon.png" alt="GitHub" />
+								<img
+									src="../assets/icons/github_icon.png"
+									alt=""
+									width="24"
+									height="24"
+									loading="lazy"
+								/>
 								<span>GitHub: nemolucky</span>
 							</div>
 							<div class="contact-item">
 								<img
 									src="../assets/icons/location_icon.png"
-									alt="Местоположение"
+									alt=""
+									width="24"
+									height="24"
+									loading="lazy"
 								/>
 								<span>Москва, Россия</span>
 							</div>
@@ -80,7 +124,7 @@
 			</section>
 		</main>
 
-		<footer>
+		<footer class="footer">
 			<div class="container">
 				<p>© 2025 Контакты</p>
 			</div>

@@ -2,7 +2,10 @@
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
 		<title>Портфолио студента</title>
 		<link
 			rel="icon"
@@ -12,13 +15,15 @@
 		<link rel="stylesheet" href="./styles/global.css" />
 		<link rel="stylesheet" href="./styles/index.css" />
 	</head>
-	<body>
+	<body class="page">
+		<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
 		<header>
 			<div class="container">
 				<div class="logo">
 					<h1>Пучко Денис</h1>
 				</div>
-				<nav>
+				<nav class="nav" aria-label="Основная навигация">
 					<ul>
 						<li><a href="./index.html" class="active">Главная</a></li>
 						<li><a href="./pages/projects.html">Проекты</a></li>
@@ -29,7 +34,7 @@
 			</div>
 		</header>
 
-		<main>
+		<main id="main" class="main">
 			<section class="hero">
 				<div class="container">
 					<div class="hero-content">
@@ -41,7 +46,42 @@
 							>
 						</div>
 						<div class="hero-image">
-							<img src="./assets/images/student.jpg" alt="Фото студента" />
+							<figure class="hero_image">
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											./assets/images/student-150.avif 150w,
+											./assets/images/student-200.avif 200w,
+											./assets/images/student-300.avif 300w
+										"
+										sizes="200px"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											./assets/images/student-150.webp 150w,
+											./assets/images/student-200.webp 200w,
+											./assets/images/student-300.webp 300w
+										"
+										sizes="200px"
+									/>
+									<img
+										class="hero_photo"
+										src="./assets/images/student-200.jpg"
+										srcset="
+											./assets/images/student-150.jpg 150w,
+											./assets/images/student-200.jpg 200w,
+											./assets/images/student-300.jpg 300w
+										"
+										sizes="200px"
+										width="200"
+										height="200"
+										alt="Портрет студента"
+										fetchpriority="high"
+									/>
+								</picture>
+							</figure>
 						</div>
 					</div>
 				</div>
@@ -86,23 +126,40 @@
 			<section class="projects-preview">
 				<div class="container">
 					<h2>Лучшие проекты</h2>
-					<div class="projects-grid">
-						<div class="project-card">
-							<img src="./assets/images/project_1.jpg" alt="Проект 1" />
-							<div class="project-content">
-								<h3>NailsElizza</h3>
+					<div class="projects-area">
+						<div class="projects-grid">
+							<div class="project-card">
+								<img
+									src="./assets/images/project_1.jpg"
+									alt="Проект 1"
+									width="300"
+									height="200"
+								/>
+								<div class="project-content">
+									<h3>NailsElizza</h3>
+								</div>
 							</div>
-						</div>
-						<div class="project-card">
-							<img src="./assets/images/project_2.jpg" alt="Проект 2" />
-							<div class="project-content">
-								<h3>CoinsPrice</h3>
+							<div class="project-card">
+								<img
+									src="./assets/images/project_2.jpg"
+									alt="Проект 2"
+									width="300"
+									height="200"
+								/>
+								<div class="project-content">
+									<h3>CoinsPrice</h3>
+								</div>
 							</div>
-						</div>
-						<div class="project-card">
-							<img src="./assets/images/project_3.png" alt="Проект 3" />
-							<div class="project-content">
-								<h3>Трекер задач</h3>
+							<div class="project-card">
+								<img
+									src="./assets/images/project_3.png"
+									alt="Проект 3"
+									width="300"
+									height="200"
+								/>
+								<div class="project-content">
+									<h3>Трекер задач</h3>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -110,7 +167,7 @@
 			</section>
 		</main>
 
-		<footer>
+		<footer class="footer">
 			<div class="container">
 				<p>© 2025 Контакты</p>
 			</div>

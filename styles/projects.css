@@ -5,6 +5,7 @@
 	padding: 60px 0;
 	border-radius: 15px;
 	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	margin-block: var(--space-2xl, 3rem);
 }
 
 /* Фильтры проектов */
@@ -19,12 +20,13 @@
 .filter-btn {
 	background-color: #f8f9fa;
 	border: 2px solid #e9ecef;
-	padding: 12px 24px;
+	padding: max(0.5rem, calc((44px - 1em) / 2)) 24px;
 	border-radius: 30px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 	font-weight: 500;
 	color: #495057;
+	font: inherit;
 }
 
 .filter-btn.active,
@@ -35,11 +37,16 @@
 	box-shadow: 0 4px 12px rgba(41, 147, 94, 0.3);
 }
 
+.filter-btn:focus-visible {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
+}
+
 /* Сетка проектов */
 .projects-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 30px;
+	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	gap: var(--space-lg, 1.5rem);
 	margin-top: 40px;
 }
 
@@ -52,11 +59,22 @@
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	min-width: 0;
 }
 
 .project-card:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(90deg, #379b78, #55efb9);
 }
 
 .project-card img {
@@ -80,9 +98,10 @@
 }
 
 .project-card h3 {
-	font-size: 1.4rem;
+	font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.4rem);
 	margin-bottom: 10px;
 	color: #2c3e50;
+	overflow-wrap: anywhere;
 }
 
 .project-card p {
@@ -100,6 +119,32 @@
 	font-weight: 500;
 }
 
+/* Контейнерные запросы для сетки проектов */
+@supports (container-type: inline-size) {
+	.projects-area {
+		container-type: inline-size;
+		container-name: projects;
+	}
+
+	@container projects (min-width: 640px) {
+		.projects-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@container projects (min-width: 960px) {
+		.projects-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	@container projects (min-width: 1200px) {
+		.projects-grid {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
 /* Модальное окно */
 .modal {
 	display: none;
@@ -112,6 +157,7 @@
 	background-color: rgba(0, 0, 0, 0.6);
 	backdrop-filter: blur(5px);
 	animation: fadeIn 0.3s ease;
+	padding-inline: env(safe-area-inset-left) env(safe-area-inset-right);
 }
 
 .modal-content {
@@ -124,6 +170,8 @@
 	position: relative;
 	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 	animation: slideUp 0.4s ease;
+	max-height: 90vh;
+	overflow-y: auto;
 }
 
 .close {
@@ -135,8 +183,8 @@
 	cursor: pointer;
 	color: #6c757d;
 	transition: color 0.3s;
-	width: 35px;
-	height: 35px;
+	width: 44px;
+	height: 44px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -146,6 +194,11 @@
 .close:hover {
 	color: #212529;
 	background-color: #f8f9fa;
+}
+
+.close:focus-visible {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
 }
 
 /* Стили для изображений в модальном окне */
@@ -173,13 +226,14 @@
 #modal-body h2 {
 	color: #2c3e50;
 	margin-bottom: 20px;
-	font-size: 2rem;
+	font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
 }
 
 #modal-body p {
 	line-height: 1.6;
 	margin-bottom: 20px;
 	color: #495057;
+	font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
 }
 
 .project-technologies {
@@ -213,11 +267,6 @@
 
 /* Адаптивность для projects.html */
 @media (max-width: 768px) {
-	.projects-grid {
-		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-		gap: 25px;
-	}
-
 	.filter-buttons {
 		gap: 8px;
 	}
@@ -230,14 +279,19 @@
 	.modal-content {
 		width: 90%;
 		padding: 25px;
+		margin: 10% auto;
+	}
+
+	.project-links {
+		flex-direction: column;
+	}
+
+	.project-links .btn {
+		min-width: 100%;
 	}
 }
 
 @media (max-width: 576px) {
-	.projects-grid {
-		grid-template-columns: 1fr;
-	}
-
 	.filter-buttons {
 		flex-direction: column;
 		align-items: center;
@@ -246,5 +300,48 @@
 	.filter-btn {
 		width: 80%;
 		text-align: center;
+	}
+
+	.modal-content {
+		width: 95%;
+		padding: 20px;
+		margin: 5% auto;
+	}
+
+	.close {
+		top: 10px;
+		right: 15px;
+		width: 40px;
+		height: 40px;
+	}
+}
+
+/* Уважение к снижению движения */
+@media (prefers-reduced-motion: reduce) {
+	.project-card,
+	.filter-btn,
+	.modal,
+	.modal-content {
+		transition: none !important;
+		animation: none !important;
+	}
+
+	.project-card:hover {
+		transform: none;
+	}
+
+	.project-card:hover img {
+		transform: none;
+	}
+}
+
+/* Повышенный контраст */
+@media (prefers-contrast: more) {
+	.filter-btn {
+		border: 3px solid currentColor;
+	}
+
+	.project-card {
+		border: 2px solid #e9ecef;
 	}
 }

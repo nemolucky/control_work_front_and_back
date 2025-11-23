@@ -2,7 +2,10 @@
 <html lang="ru">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
 		<title>Проекты - Портфолио студента</title>
 		<link
 			rel="icon"
@@ -12,13 +15,16 @@
 		<link rel="stylesheet" href="../styles/global.css" />
 		<link rel="stylesheet" href="../styles/projects.css" />
 	</head>
-	<body>
+	<body class="page">
+		<!-- Skip-link для доступности -->
+		<a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
 		<header>
 			<div class="container">
 				<div class="logo">
 					<h1>Пучко Денис</h1>
 				</div>
-				<nav>
+				<nav class="nav" aria-label="Основная навигация">
 					<ul>
 						<li><a href="../index.html">Главная</a></li>
 						<li><a href="projects.html" class="active">Проекты</a></li>
@@ -29,7 +35,7 @@
 			</div>
 		</header>
 
-		<main>
+		<main id="main" class="main">
 			<section class="projects">
 				<div class="container">
 					<h2>Мои проекты</h2>
@@ -39,57 +45,175 @@
 						<button class="filter-btn" data-filter="js">JavaScript</button>
 						<button class="filter-btn" data-filter="react">React</button>
 					</div>
-					<div class="projects-grid">
-						<div class="project-card" data-category="html">
-							<img
-								src="../assets/images/self_site_project.png"
-								alt="Личный сайт"
-							/>
-							<div class="project-content">
-								<h3>Личный сайт</h3>
-								<p>HTML, CSS</p>
-								<button class="btn project-details" data-project="1">
-									Подробнее
-								</button>
+					<div class="projects-area">
+						<div class="projects-grid">
+							<div class="project-card" data-category="html">
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/self_site_project-300.avif 300w,
+											../assets/images/self_site_project-450.avif 450w,
+											../assets/images/self_site_project-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/self_site_project-300.webp 300w,
+											../assets/images/self_site_project-450.webp 450w,
+											../assets/images/self_site_project-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/self_site_project-450.jpg"
+										srcset="
+											../assets/images/self_site_project-300.jpg 300w,
+											../assets/images/self_site_project-450.jpg 450w,
+											../assets/images/self_site_project-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Личный сайт"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
+								<div class="project-content">
+									<h3>Личный сайт</h3>
+									<p>HTML, CSS</p>
+									<button class="btn project-details" data-project="1">
+										Подробнее
+									</button>
+								</div>
 							</div>
-						</div>
-						<div class="project-card" data-category="js">
-							<img
-								src="../assets/images/news_site_project.png"
-								alt="News-приложение"
-							/>
-							<div class="project-content">
-								<h3>Новостной портал</h3>
-								<p>JavaScript</p>
-								<button class="btn project-details" data-project="2">
-									Подробнее
-								</button>
+							<div class="project-card" data-category="js">
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/news_site_project-300.avif 300w,
+											../assets/images/news_site_project-450.avif 450w,
+											../assets/images/news_site_project-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/news_site_project-300.webp 300w,
+											../assets/images/news_site_project-450.webp 450w,
+											../assets/images/news_site_project-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/news_site_project-450.jpg"
+										srcset="
+											../assets/images/news_site_project-300.jpg 300w,
+											../assets/images/news_site_project-450.jpg 450w,
+											../assets/images/news_site_project-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="News-приложение"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
+								<div class="project-content">
+									<h3>Новостной портал</h3>
+									<p>JavaScript</p>
+									<button class="btn project-details" data-project="2">
+										Подробнее
+									</button>
+								</div>
 							</div>
-						</div>
-						<div class="project-card" data-category="react">
-							<img
-								src="../assets/images/store_project.png"
-								alt="Интернет-магазин"
-							/>
-							<div class="project-content">
-								<h3>Интернет-магазин</h3>
-								<p>React</p>
-								<button class="btn project-details" data-project="3">
-									Подробнее
-								</button>
+							<div class="project-card" data-category="react">
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/store_project-300.avif 300w,
+											../assets/images/store_project-450.avif 450w,
+											../assets/images/store_project-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/store_project-300.webp 300w,
+											../assets/images/store_project-450.webp 450w,
+											../assets/images/store_project-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/store_project-450.jpg"
+										srcset="
+											../assets/images/store_project-300.jpg 300w,
+											../assets/images/store_project-450.jpg 450w,
+											../assets/images/store_project-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Интернет-магазин"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
+								<div class="project-content">
+									<h3>Интернет-магазин</h3>
+									<p>React</p>
+									<button class="btn project-details" data-project="3">
+										Подробнее
+									</button>
+								</div>
 							</div>
-						</div>
-						<div class="project-card" data-category="html">
-							<img
-								src="../assets/images/portfolio_project.png"
-								alt="Портфолио"
-							/>
-							<div class="project-content">
-								<h3>Портфолио</h3>
-								<p>HTML, Bootstrap</p>
-								<button class="btn project-details" data-project="4">
-									Подробнее
-								</button>
+							<div class="project-card" data-category="html">
+								<picture>
+									<source
+										type="image/avif"
+										srcset="
+											../assets/images/portfolio_project-300.avif 300w,
+											../assets/images/portfolio_project-450.avif 450w,
+											../assets/images/portfolio_project-600.avif 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<source
+										type="image/webp"
+										srcset="
+											../assets/images/portfolio_project-300.webp 300w,
+											../assets/images/portfolio_project-450.webp 450w,
+											../assets/images/portfolio_project-600.webp 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+									/>
+									<img
+										src="../assets/images/portfolio_project-450.jpg"
+										srcset="
+											../assets/images/portfolio_project-300.jpg 300w,
+											../assets/images/portfolio_project-450.jpg 450w,
+											../assets/images/portfolio_project-600.jpg 600w
+										"
+										sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+										alt="Портфолио"
+										width="450"
+										height="300"
+										loading="lazy"
+									/>
+								</picture>
+								<div class="project-content">
+									<h3>Портфолио</h3>
+									<p>HTML, Bootstrap</p>
+									<button class="btn project-details" data-project="4">
+										Подробнее
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -104,7 +228,7 @@
 			</div>
 		</div>
 
-		<footer>
+		<footer class="footer">
 			<div class="container">
 				<p>© 2025 Контакты</p>
 			</div>

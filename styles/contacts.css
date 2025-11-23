@@ -51,6 +51,7 @@
 	font-family: inherit;
 	transition: all 0.3s ease;
 	font-size: 1rem;
+	color: #495057;
 	background-color: #fff;
 }
 
@@ -109,6 +110,11 @@
 	color: #495057;
 	font-weight: 500;
 	font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+}
+
+.contact-item .source-link {
+	text-decoration: none;
+	color: #1d6a5c;
 }
 
 @supports (container-type: inline-size) {

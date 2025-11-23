@@ -1,5 +1,3 @@
-/* diary.css */
-/* Дневник */
 .diary {
 	background-color: #fff;
 	padding: 60px 0;
@@ -165,7 +163,6 @@
 	padding: max(0.5rem, calc((44px - 1em) / 2)) 1rem;
 }
 
-/* Контейнерные запросы для дневника */
 @supports (container-type: inline-size) {
 	.diary-content {
 		container-type: inline-size;
@@ -195,7 +192,6 @@
 	}
 }
 
-/* Анимация shimmer для прогресс-баров */
 @keyframes shimmer {
 	0% {
 		transform: translateX(-100%);
@@ -205,7 +201,6 @@
 	}
 }
 
-/* Уважение к снижению движения */
 @media (prefers-reduced-motion: reduce) {
 	.timeline-item,
 	.course-item,
@@ -222,7 +217,6 @@
 	}
 }
 
-/* Повышенный контраст */
 @media (prefers-contrast: more) {
 	.progress-timeline,
 	.current-courses {
@@ -238,7 +232,6 @@
 	}
 }
 
-/* Фокус для доступности */
 .timeline-item:focus-within,
 .course-item:focus-within {
 	background-color: #e3f2fd;
@@ -251,7 +244,6 @@
 	outline-offset: 2px;
 }
 
-/* Адаптивность для diary.html */
 @media (max-width: 768px) {
 	.diary-content {
 		gap: 30px;
@@ -306,7 +298,6 @@
 	}
 }
 
-/* Крупные цели для touch-устройств */
 @media (pointer: coarse) {
 	.timeline-item,
 	.course-item {

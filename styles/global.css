@@ -1,0 +1,183 @@
+/* global.css */
+/* Общие стили */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+	background-color: #f8f9fa;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/* Шапка */
+header {
+	background-color: #fff;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 100;
+}
+
+header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+}
+
+.logo h1 {
+	font-size: 1.5rem;
+	background: #379b78;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+}
+
+nav ul li {
+	margin-left: 25px;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #495057;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	padding: 8px 16px;
+	border-radius: 6px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+	color: #379b78;
+	background-color: #f8f9fa;
+	transform: translateY(-2px);
+}
+
+/* Основной контент */
+main {
+	min-height: calc(100vh - 140px);
+	padding: 40px 0;
+}
+
+section {
+	margin-bottom: 50px;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 40px;
+	color: #2c3e50;
+	font-size: 2.2rem;
+	position: relative;
+}
+
+/* Кнопки */
+.btn {
+	display: inline-block;
+	background: #55efb9;
+	color: white;
+	padding: 12px 30px;
+	border: none;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(67, 229, 238, 0.3);
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 25px rgba(67, 238, 229, 0.4);
+}
+
+/* Подвал */
+footer {
+	background: #379b78;
+	color: white;
+	text-align: center;
+	padding: 30px 0;
+	margin-top: 60px;
+}
+
+/* Анимации */
+@keyframes shimmer {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	from {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+	header .container {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	nav ul {
+		margin-top: 20px;
+		justify-content: center;
+	}
+
+	nav ul li {
+		margin: 0 10px;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.skill-item,
+	.course-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+	}
+
+	.timeline-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+}

@@ -1,0 +1,250 @@
+/* projects.css */
+/* Проекты */
+.projects {
+	background-color: #fff;
+	padding: 60px 0;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Фильтры проектов */
+.filter-buttons {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.filter-btn {
+	background-color: #f8f9fa;
+	border: 2px solid #e9ecef;
+	padding: 12px 24px;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-weight: 500;
+	color: #495057;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+	background: #379b78;
+	color: white;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(41, 147, 94, 0.3);
+}
+
+/* Сетка проектов */
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 30px;
+	margin-top: 40px;
+}
+
+.project-card {
+	background-color: #fff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: contain;
+	transition: transform 0.5s ease;
+	padding: 10px;
+	background-color: #f8f9fa;
+}
+
+.project-card:hover img {
+	transform: scale(1.05);
+}
+
+.project-content {
+	padding: 25px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card h3 {
+	font-size: 1.4rem;
+	margin-bottom: 10px;
+	color: #2c3e50;
+}
+
+.project-card p {
+	color: #6c757d;
+	margin-bottom: 20px;
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+.project-card .btn {
+	margin-top: auto;
+	align-self: flex-start;
+	border-radius: 8px;
+	padding: 10px 25px;
+	font-weight: 500;
+}
+
+/* Модальное окно */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(5px);
+	animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+	background-color: #fff;
+	margin: 5% auto;
+	padding: 35px;
+	border-radius: 15px;
+	width: 80%;
+	max-width: 800px;
+	position: relative;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+	animation: slideUp 0.4s ease;
+}
+
+.close {
+	position: absolute;
+	top: 20px;
+	right: 25px;
+	font-size: 28px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #6c757d;
+	transition: color 0.3s;
+	width: 35px;
+	height: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+}
+
+.close:hover {
+	color: #212529;
+	background-color: #f8f9fa;
+}
+
+/* Стили для изображений в модальном окне */
+.modal-content img {
+	max-width: 100%;
+	max-height: 400px;
+	object-fit: contain;
+	border-radius: 8px;
+	margin: 15px 0;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Контейнер для изображений в модальном окне */
+.project-images {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+	padding: 20px;
+	border-radius: 10px;
+	margin: 20px 0;
+}
+
+/* Улучшенные стили для контента модального окна */
+#modal-body h2 {
+	color: #2c3e50;
+	margin-bottom: 20px;
+	font-size: 2rem;
+}
+
+#modal-body p {
+	line-height: 1.6;
+	margin-bottom: 20px;
+	color: #495057;
+}
+
+.project-technologies {
+	background: #e9ecef;
+	padding: 15px;
+	border-radius: 8px;
+	margin: 20px 0;
+}
+
+.project-technologies strong {
+	color: #2c3e50;
+}
+
+.project-links {
+	display: flex;
+	gap: 15px;
+	margin-top: 25px;
+	flex-wrap: wrap;
+}
+
+.project-links .btn {
+	flex: 1;
+	min-width: 150px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.project-links .btn:last-child {
+	background: linear-gradient(90deg, #6c757d, #495057);
+}
+
+/* Адаптивность для projects.html */
+@media (max-width: 768px) {
+	.projects-grid {
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 25px;
+	}
+
+	.filter-buttons {
+		gap: 8px;
+	}
+
+	.filter-btn {
+		padding: 10px 20px;
+		font-size: 0.9rem;
+	}
+
+	.modal-content {
+		width: 90%;
+		padding: 25px;
+	}
+}
+
+@media (max-width: 576px) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.filter-buttons {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.filter-btn {
+		width: 80%;
+		text-align: center;
+	}
+}

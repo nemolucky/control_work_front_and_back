@@ -1,0 +1,239 @@
+/* index.css */
+/* Герой секция */
+.hero {
+	background: linear-gradient(135deg, #66eadd 0%, #083546 100%);
+	padding: 80px 0;
+	border-radius: 15px;
+	color: white;
+	margin-bottom: 60px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.hero-text {
+	flex: 1;
+	min-width: 300px;
+	padding-right: 40px;
+}
+
+.hero-text h2 {
+	font-size: 2.5rem;
+	text-align: left;
+	margin-bottom: 20px;
+	color: white;
+}
+
+.hero-text h2::after {
+	display: none;
+}
+
+.hero-text p {
+	font-size: 1.3rem;
+	margin-bottom: 30px;
+	color: rgba(255, 255, 255, 0.9);
+	line-height: 1.8;
+}
+
+.hero-image {
+	flex: 1;
+	min-width: 300px;
+	text-align: center;
+}
+
+.hero-image img {
+	max-width: 100%;
+	border-radius: 15px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+.hero-image img:hover {
+	transform: scale(1.02);
+}
+
+/* Секция навыков */
+.skills {
+	background-color: #fff;
+	padding: 60px 0;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	margin-bottom: 60px;
+}
+
+.skill-list {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.skill-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 25px;
+	padding: 15px;
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
+}
+
+.skill-item:hover {
+	background-color: #f8f9fa;
+}
+
+.skill-item span:first-child {
+	font-weight: 600;
+	color: #2c3e50;
+	min-width: 120px;
+}
+
+.skill-bar {
+	flex-grow: 1;
+	height: 12px;
+	background-color: #e9ecef;
+	border-radius: 10px;
+	margin: 0 20px;
+	overflow: hidden;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.skill-progress {
+	height: 100%;
+	background: #379b78;
+	border-radius: 10px;
+	transition: width 1s ease-in-out;
+	position: relative;
+}
+
+.skill-progress::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-image: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.3),
+		transparent
+	);
+	animation: shimmer 2s infinite;
+}
+
+.skill-item span:last-child {
+	font-weight: 600;
+	min-width: 50px;
+	text-align: right;
+}
+
+/* Предпросмотр проектов */
+.projects-preview {
+	background-color: #fff;
+	padding: 60px 0;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.projects-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 30px;
+	margin-top: 40px;
+}
+
+.project-card {
+	background-color: #fff;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-card::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+}
+
+.project-card img {
+	width: 100%;
+	height: 200px;
+	object-fit: contain;
+	transition: transform 0.5s ease;
+	padding: 10px;
+	background-color: #f8f9fa;
+}
+
+.project-card:hover img {
+	transform: scale(1.05);
+}
+
+.project-content {
+	padding: 25px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.project-card h3 {
+	font-size: 1.4rem;
+	margin-bottom: 10px;
+	color: #2c3e50;
+}
+
+.project-card .btn {
+	margin-top: auto;
+	align-self: flex-start;
+	border-radius: 8px;
+	padding: 10px 25px;
+	font-weight: 500;
+}
+
+/* Адаптивность для index.html */
+@media (max-width: 768px) {
+	.hero-content {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.hero-text {
+		padding-right: 0;
+		margin-bottom: 40px;
+	}
+
+	.hero-text h2 {
+		text-align: center;
+	}
+
+	.projects-grid {
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 25px;
+	}
+}
+
+@media (max-width: 576px) {
+	.projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.skill-bar {
+		width: 100%;
+		margin: 10px 0;
+	}
+}

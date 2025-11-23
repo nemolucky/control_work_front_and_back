@@ -1,0 +1,151 @@
+/* diary.css */
+/* Дневник */
+.diary {
+	background-color: #fff;
+	padding: 60px 0;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.diary-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+}
+
+.progress-timeline,
+.current-courses {
+	background-color: #fff;
+	padding: 35px;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.progress-timeline h3,
+.current-courses h3 {
+	color: #2c3e50;
+	margin-bottom: 25px;
+	font-size: 1.4rem;
+	position: relative;
+}
+
+.timeline {
+	margin-bottom: 25px;
+}
+
+.timeline-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+	border-bottom: 1px solid #e9ecef;
+	transition: background-color 0.3s ease;
+	border-radius: 8px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.timeline-item:hover {
+	background-color: #f8f9fa;
+}
+
+.timeline-item:last-child {
+	border-bottom: none;
+}
+
+.timeline-item.completed .task {
+	color: #28a745;
+	text-decoration: line-through;
+}
+
+.timeline-item.in-progress .task {
+	color: #ffc107;
+	font-weight: 600;
+}
+
+.timeline-item .date {
+	font-weight: 600;
+	color: #379b78;
+	min-width: 70px;
+}
+
+.timeline-item .status {
+	font-weight: 600;
+	min-width: 100px;
+	text-align: right;
+}
+
+.timeline-item.completed .status {
+	color: #28a745;
+}
+
+.timeline-item.in-progress .status {
+	color: #ffc107;
+}
+
+.course-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 15px;
+	border-radius: 10px;
+	transition: background-color 0.3s ease;
+}
+
+.course-item:hover {
+	background-color: #f8f9fa;
+}
+
+.course-item span:first-child {
+	font-weight: 600;
+	color: #2c3e50;
+	min-width: 150px;
+}
+
+.progress-bar {
+	flex-grow: 1;
+	height: 12px;
+	background-color: #e9ecef;
+	border-radius: 10px;
+	margin: 0 20px;
+	overflow: hidden;
+	box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #28a745, #20c997);
+	border-radius: 10px;
+	transition: width 1s ease-in-out;
+}
+
+.course-item span:last-child {
+	font-weight: 600;
+	min-width: 50px;
+	text-align: right;
+}
+
+#add-entry {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/* Адаптивность для diary.html */
+@media (max-width: 768px) {
+	.diary-content {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+}
+
+@media (max-width: 576px) {
+	.progress-bar {
+		width: 100%;
+		margin: 10px 0;
+	}
+
+	.timeline-item .status {
+		align-self: flex-end;
+	}
+}

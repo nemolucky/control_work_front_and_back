@@ -44,7 +44,7 @@
 	text-align: center;
 }
 
-.hero_photo {
+.hero-photo {
 	inline-size: clamp(200px, 30vw, 450px);
 	block-size: auto;
 	border-radius: 50%;
@@ -53,7 +53,7 @@
 	transition: transform 0.3s ease;
 }
 
-.hero_photo:hover {
+.hero-photo:hover {
 	transform: scale(1.02);
 }
 

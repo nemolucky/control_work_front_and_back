@@ -16,7 +16,6 @@
 		<link rel="stylesheet" href="../styles/projects.css" />
 	</head>
 	<body class="page">
-		<!-- Skip-link для доступности -->
 		<a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
 		<header>
@@ -24,12 +23,26 @@
 				<div class="logo">
 					<h1>Пучко Денис</h1>
 				</div>
-				<nav class="nav" aria-label="Основная навигация">
-					<ul>
-						<li><a href="../index.html">Главная</a></li>
-						<li><a href="projects.html" class="active">Проекты</a></li>
-						<li><a href="diary.html">Дневник</a></li>
-						<li><a href="contacts.html">Контакты</a></li>
+				<nav class="nav" aria-label="Основная навигация" role="navigation">
+					<ul role="menubar">
+						<li>
+							<a href="../index.html" role="menuitem">Главная</a>
+						</li>
+						<li>
+							<a
+								href="projects.html"
+								class="active"
+								aria-current="page"
+								role="menuitem"
+								>Проекты</a
+							>
+						</li>
+						<li>
+							<a href="diary.html" role="menuitem">Дневник</a>
+						</li>
+						<li>
+							<a href="contacts.html" role="menuitem">Контакты</a>
+						</li>
 					</ul>
 				</nav>
 			</div>

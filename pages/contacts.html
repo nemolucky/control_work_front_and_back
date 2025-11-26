@@ -6,6 +6,10 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1, viewport-fit=cover"
 		/>
+		<meta
+			name="description"
+			content="Контактная информация Пучко Дениса. Свяжитесь со мной через форму обратной связи или используйте прямые контакты."
+		/>
 		<title>Контакты - Портфолио студента</title>
 		<link
 			rel="icon"
@@ -24,103 +28,167 @@
 					<h1>Пучко Денис</h1>
 				</div>
 				<nav class="nav" aria-label="Основная навигация">
-					<ul>
-						<li><a href="../index.html">Главная</a></li>
-						<li><a href="projects.html">Проекты</a></li>
-						<li><a href="diary.html">Дневник</a></li>
-						<li><a href="contacts.html" class="active">Контакты</a></li>
+					<ul role="menubar">
+						<li role="none">
+							<a href="../index.html" role="menuitem">Главная</a>
+						</li>
+						<li role="none">
+							<a href="projects.html" role="menuitem">Проекты</a>
+						</li>
+						<li role="none">
+							<a href="diary.html" role="menuitem">Дневник</a>
+						</li>
+						<li role="none">
+							<a
+								href="contacts.html"
+								class="active"
+								aria-current="page"
+								role="menuitem"
+								>Контакты</a
+							>
+						</li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 
 		<main id="main" class="main">
-			<section class="contacts">
+			<section class="contacts" aria-labelledby="contacts-heading">
 				<div class="container">
-					<h2>Свяжитесь со мной</h2>
+					<h2 id="contacts-heading">Свяжитесь со мной</h2>
 					<div class="contact-content">
 						<form class="contact-form" id="contact-form" novalidate>
-							<div class="form-group">
-								<label for="name">Имя:</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									required
-									aria-describedby="name-error"
-									autocomplete="name"
-								/>
-								<span class="error-message" id="name-error" role="alert"></span>
-							</div>
-							<div class="form-group">
-								<label for="email">Email:</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									required
-									aria-describedby="email-error"
-									autocomplete="email"
-								/>
-								<span
-									class="error-message"
-									id="email-error"
-									role="alert"
-								></span>
-							</div>
-							<div class="form-group">
-								<label for="message">Сообщение:</label>
-								<textarea
-									id="message"
-									name="message"
-									rows="5"
-									required
-									aria-describedby="message-error"
-								></textarea>
-								<span
-									class="error-message"
-									id="message-error"
-									role="alert"
-								></span>
-							</div>
-							<button type="submit" class="btn">Отправить сообщение</button>
+							<fieldset>
+								<legend class="visually-hidden">Контактная информация</legend>
+
+								<div class="form-group">
+									<label for="name"> Имя: </label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										required
+										aria-required="true"
+										aria-describedby="name-error"
+										autocomplete="name"
+										aria-invalid="false"
+									/>
+									<span
+										class="error-message"
+										id="name-error"
+										role="alert"
+										aria-live="polite"
+									></span>
+								</div>
+
+								<div class="form-group">
+									<label for="email"> Email: </label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										required
+										aria-required="true"
+										aria-describedby="email-error"
+										autocomplete="email"
+										aria-invalid="false"
+									/>
+									<span
+										class="error-message"
+										id="email-error"
+										role="alert"
+										aria-live="polite"
+									></span>
+								</div>
+
+								<div class="form-group">
+									<label for="message"> Сообщение: </label>
+									<textarea
+										id="message"
+										name="message"
+										rows="5"
+										required
+										aria-required="true"
+										aria-describedby="message-error"
+										aria-invalid="false"
+									></textarea>
+									<span
+										class="error-message"
+										id="message-error"
+										role="alert"
+										aria-live="polite"
+									></span>
+								</div>
+
+								<button
+									type="submit"
+									class="btn"
+									aria-label="Отправить контактное сообщение"
+								>
+									Отправить сообщение
+								</button>
+							</fieldset>
 						</form>
+
+						<div
+							id="form-status"
+							aria-live="polite"
+							aria-atomic="true"
+							class="form-status visually-hidden"
+							tabindex="-1"
+						></div>
+
 						<div class="contact-info">
-							<h3>Контакты:</h3>
+							<h3>Контакты</h3>
 							<div class="contact-item">
 								<img
 									src="../assets/icons/email_icon.png"
 									alt=""
+									aria-hidden="true"
 									width="24"
 									height="24"
 									loading="lazy"
 								/>
-								<span>puchko.d.v@edu.mirea.ru</span>
+								<span>
+									<span class="visually-hidden">Электронная почта: </span>
+									puchko.d.v@edu.mirea.ru
+								</span>
 							</div>
 							<div class="contact-item">
 								<img
 									src="../assets/icons/github_icon.png"
 									alt=""
+									aria-hidden="true"
 									width="24"
 									height="24"
 									loading="lazy"
 								/>
-								<span
-									>GitHub:
-									<a href="https://github.com/nemolucky" class="source-link"
-										>nemolucky</a
-									></span
-								>
+								<span>
+									<span class="visually-hidden">GitHub профиль: </span>
+									<a
+										href="https://github.com/nemolucky"
+										class="source-link"
+										aria-label="Профиль GitHub nemolucky (откроется в новой вкладке)"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										nemolucky
+									</a>
+								</span>
 							</div>
 							<div class="contact-item">
 								<img
 									src="../assets/icons/location_icon.png"
 									alt=""
+									aria-hidden="true"
 									width="24"
 									height="24"
 									loading="lazy"
 								/>
-								<span>Москва, Россия</span>
+								<span>
+									<span class="visually-hidden">Местоположение: </span>
+									Москва, Россия
+								</span>
 							</div>
 						</div>
 					</div>

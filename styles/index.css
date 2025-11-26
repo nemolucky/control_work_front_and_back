@@ -1,5 +1,5 @@
 .hero {
-	background: linear-gradient(135deg, #66eadd 0%, #083546 100%);
+	background: linear-gradient(135deg, #fd7fd3 0%, #3e0846 100%);
 	padding: 80px 0;
 	border-radius: 15px;
 	color: white;
@@ -102,7 +102,7 @@
 
 .skill-progress {
 	height: 100%;
-	background: #379b78;
+	background: #813d9c;
 	border-radius: 10px;
 	transition: width 1s ease-in-out;
 	position: relative;

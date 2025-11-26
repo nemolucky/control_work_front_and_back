@@ -60,7 +60,7 @@
 .form-group input:focus,
 .form-group textarea:focus {
 	outline: none;
-	border-color: #379b78;
+	border-color: #813d9c;
 	box-shadow: 0 0 0 3px rgba(55, 155, 120, 0.1);
 }
 
@@ -388,7 +388,229 @@
 @media (prefers-reduced-motion: no-preference) {
 	.form-submitting::after {
 		content: 'Отправка...';
-		color: #379b78;
+		color: #813d9c;
 		font-weight: 600;
 	}
+}
+
+.required {
+	color: #e74c3c;
+	font-weight: bold;
+}
+
+.form-group label::after {
+	content: ' *';
+	color: #e01b24;
+	font-weight: bold;
+}
+
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.btn:focus,
+.source-link:focus {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
+}
+
+fieldset {
+	border: 1px solid #e9ecef;
+	border-radius: 8px;
+	padding: 1.5rem;
+	margin: 0;
+}
+
+legend.visually-hidden {
+	position: absolute;
+}
+
+.form-group input[aria-invalid='true'],
+.form-group textarea[aria-invalid='true'] {
+	border-color: #e74c3c;
+	background-color: #fdf2f2;
+	border-width: 2px;
+}
+
+.error-message {
+	color: #c53030;
+	font-size: 0.9rem;
+	margin-top: 5px;
+	display: block;
+	font-weight: 600;
+	min-height: 1.5em;
+}
+
+@media (prefers-contrast: high) {
+	.form-group input:focus,
+	.form-group textarea:focus,
+	.btn:focus,
+	.source-link:focus {
+		outline: 3px solid #000;
+		border-color: #000;
+	}
+
+	.contact-form,
+	.contact-info {
+		border: 2px solid #000;
+	}
+
+	.form-group input,
+	.form-group textarea {
+		border: 2px solid #495057;
+	}
+
+	.contact-item {
+		border: 1px solid #495057;
+	}
+
+	.error-message {
+		font-weight: 700;
+		color: #000;
+	}
+}
+
+.btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.form-group input,
+	.form-group textarea,
+	.contact-item,
+	.btn {
+		transition: all 0.3s ease;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.form-group input,
+	.form-group textarea,
+	.contact-item,
+	.btn {
+		transition: none;
+	}
+}
+
+.contacts {
+	background-color: #fff;
+	padding: 60px 0;
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	margin-block: var(--space-2xl, 3rem);
+}
+
+.contact-content {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+	gap: var(--space-lg, 1.5rem);
+	align-items: start;
+}
+
+.contact-form,
+.contact-info {
+	background-color: #fff;
+	padding: clamp(1.5rem, 1.25rem + 1vw, 2.5rem);
+	border-radius: 15px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+	min-width: 0;
+	height: fit-content;
+}
+
+.contact-form h3,
+.contact-info h3 {
+	color: #2c3e50;
+	margin-bottom: 25px;
+	font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
+	position: relative;
+	overflow-wrap: anywhere;
+}
+
+.form-group {
+	margin-bottom: 25px;
+}
+
+.form-group label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 600;
+	color: #495057;
+	font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+}
+
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: max(0.75rem, calc((44px - 1em) / 2)) 15px;
+	border: 2px solid #e9ecef;
+	border-radius: 8px;
+	font-family: inherit;
+	transition: all 0.3s ease;
+	font-size: 1rem;
+	color: #495057;
+	background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+	outline: none;
+	border-color: #813d9c;
+	box-shadow: 0 0 0 3px rgba(55, 155, 120, 0.1);
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+	outline: 3px solid #2563eb;
+	outline-offset: 2px;
+}
+
+.form-group input:invalid:not(:focus):not(:placeholder-shown),
+.form-group textarea:invalid:not(:focus):not(:placeholder-shown) {
+	border-color: #e74c3c;
+	background-color: #fdf2f2;
+}
+
+.contact-item {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: 12px;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	min-height: 44px;
+}
+
+.contact-item:hover {
+	background-color: #f8f9fa;
+}
+
+.contact-item img {
+	width: 24px;
+	height: 24px;
+	margin-right: 15px;
+	filter: brightness(0) saturate(100%) invert(33%) sepia(98%) saturate(1233%)
+		hue-rotate(225deg) brightness(95%) contrast(93%);
+	flex-shrink: 0;
+}
+
+.contact-item span {
+	color: #495057;
+	font-weight: 500;
+	font-size: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
+}
+
+.contact-item .source-link {
+	text-decoration: none;
+	color: #b44895;
 }

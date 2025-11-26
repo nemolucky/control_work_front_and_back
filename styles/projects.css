@@ -28,7 +28,7 @@
 
 .filter-btn.active,
 .filter-btn:hover {
-	background: #379b78;
+	background: #813d9c;
 	color: white;
 	transform: translateY(-2px);
 	box-shadow: 0 4px 12px rgba(41, 147, 94, 0.3);
